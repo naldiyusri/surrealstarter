@@ -3,7 +3,7 @@
 
 This starter includes everything you need to hit the ground running:
 - Axum — ergonomic, modular web framework
-- SurrealDB — https://surrealdb.com/
+- SurrealDB — (SurrealDB)[https://surrealdb.com/] for powerful database solutions
 - Oauth2 (Discord) — classic user authentication via Discord
 - CORS — cross-origin resource sharing
 - Middleware — auth session handling
@@ -14,8 +14,7 @@ This starter includes everything you need to hit the ground running:
 - Docker — containerized environment for easy deployment 
 - Caddyfile — basic Caddy configuration for web service
  
-***Edit the `Caddyfile` to set your domain.**
-
+**Edit the `Caddyfile` to set your domain.** \n
 **You may need to modify some elements (port, project name...) to fit your preferences.**
 
 ## Getting Started
