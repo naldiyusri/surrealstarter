@@ -397,25 +397,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "backend"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "axum",
- "dotenvy",
- "reqwest",
- "serde",
- "serde_json",
- "surrealdb",
- "thiserror 2.0.12",
- "tokio",
- "tower-http",
- "tower_governor",
- "tracing",
- "tracing-subscriber",
-]
-
-[[package]]
 name = "backtrace"
 version = "0.3.74"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3821,6 +3802,25 @@ dependencies = [
  "wasm-bindgen-futures",
  "wasmtimer",
  "ws_stream_wasm",
+]
+
+[[package]]
+name = "surrealstarter"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "axum",
+ "dotenvy",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "surrealdb",
+ "thiserror 2.0.12",
+ "tokio",
+ "tower-http",
+ "tower_governor",
+ "tracing",
+ "tracing-subscriber",
 ]
 
 [[package]]

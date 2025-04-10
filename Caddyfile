@@ -1,0 +1,24 @@
+(common) {
+    reverse_proxy surrealstarter:8080 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+    }
+    reverse_proxy yesolend:3030 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+    }
+    
+    log {
+        output stderr
+        format console
+        level DEBUG
+    }
+}
+
+yourdomain {
+    import frontend
+}
+
+www.yourdomain {
+    redir https://yourdomain{uri} permanent
+}
