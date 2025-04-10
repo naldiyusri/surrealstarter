@@ -1,4 +1,4 @@
-# About
+## About
  blazing-fast Axum API starter powered by SurrealDB — perfect for building modern backends with minimal setup and maximum performance.
 
 This starter includes everything you need to hit the ground running:
@@ -14,7 +14,7 @@ This starter includes everything you need to hit the ground running:
 
 **You may need to modify some elements to fit your preferences and project.**
 
-## Env
+## Environment
 
 ```env
 # SurrealDB
