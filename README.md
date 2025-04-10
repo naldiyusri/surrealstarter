@@ -51,7 +51,7 @@ surreal start --user root --pass root memory
 Visualize it with Surrealist:
 https://surrealdb.com/docs/surrealist/installation
 
-Remote (free 1 node): https://surrealist.app/
+Remote (1 node free): https://surrealist.app/
 
 4. Run the API
 
