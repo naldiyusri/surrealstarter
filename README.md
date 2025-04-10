@@ -14,8 +14,6 @@ This starter includes everything you need to hit the ground running:
 
 **You may need to modify some elements to fit your preferences and project.**
 
-```
-
 ## Getting Started
 
 1. Clone the repo
