@@ -6,7 +6,7 @@ services:
     networks:
       - web
     expose:
-      - "8080"
+      - "3631"
 
   caddy:
     image: caddy:latest

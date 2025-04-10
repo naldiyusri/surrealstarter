@@ -1,5 +1,5 @@
 (common) {
-    reverse_proxy surrealstarter:8080 {
+    reverse_proxy surrealstarter:3631 {
         header_up Host {host}
         header_up X-Real-IP {remote_host}
     }

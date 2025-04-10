@@ -11,8 +11,11 @@ This starter includes everything you need to hit the ground running:
 - Session Management
 - Rate Limit
 - Tracing
+- Docker
+- Caddyfile
 
-**You may need to modify some elements to fit your preferences and project.**
+***You can edit the `Caddyfile` to set your domain.**
+**You may need to modify some elements (port, project name...) to fit your preferences.**
 
 ## Getting Started
 
@@ -41,14 +44,25 @@ DISCORD_REDIRECT_URI=
 3. Run SurrealDB locally (optional)
 
 If you're not using a remote DB:
+
+Memory
 ```bash
 surreal start --user root --pass root memory
 ```
 
+Remote (free 1 node)
+https://surrealist.app/
+
 4. Run the API
 
+Dev
 ```bash
 cargo run
+```
+
+Docker
+```bash
+docker compose up -d
 ```
 
 ---
