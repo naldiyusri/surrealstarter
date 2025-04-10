@@ -14,7 +14,7 @@ This starter includes everything you need to hit the ground running:
 - Docker
 - Caddyfile
 
-***You can edit the `Caddyfile` to set your domain.**
+***Edit the `Caddyfile` to set your domain.**
 
 **You may need to modify some elements (port, project name...) to fit your preferences.**
 
