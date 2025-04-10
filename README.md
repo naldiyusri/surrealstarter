@@ -57,7 +57,7 @@ Remote (free 1 node): https://surrealist.app/
 
 Dev
 ```bash
-cargo run
+cargo watch -x run
 ```
 
 Docker
