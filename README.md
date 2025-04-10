@@ -14,7 +14,7 @@ This starter includes everything you need to hit the ground running:
 - Docker — containerized environment for easy deployment 
 - Caddyfile — basic Caddy configuration for web service
  
-**Edit the `Caddyfile` to set your domain.** \n
+**Edit the `Caddyfile` to set your domain.** <br />
 **You may need to modify some elements (port, project name...) to fit your preferences.**
 
 ## Getting Started
