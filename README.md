@@ -2,18 +2,18 @@
  blazing-fast Axum API starter powered by SurrealDB — perfect for building modern backends with minimal setup and maximum performance.
 
 This starter includes everything you need to hit the ground running:
-- Axum
-- SurrealDB
-- Oauth2 (Discord)
-- CORS
-- Middleware
-- Error Handling
-- Session Management
-- Rate Limit
-- Tracing
-- Docker
-- Caddyfile
-
+- Axum — ergonomic, modular web framework
+- SurrealDB — https://surrealdb.com/
+- Oauth2 (Discord) — classic user authentication via Discord
+- CORS — cross-origin resource sharing
+- Middleware — auth session handling
+- Error Handling — consistent and structured error using `anyhow` `thiserror`
+- Session Management — secure, cookie-based sessions
+- Rate Limiting — basic rate control using `tower-governor` 
+- Tracing — request tracing using `tracing` and `tracing-subscriber`
+- Docker — containerized environment for easy deployment 
+- Caddyfile — basic Caddy configuration for web service
+ 
 ***Edit the `Caddyfile` to set your domain.**
 
 **You may need to modify some elements (port, project name...) to fit your preferences.**
